@@ -1,0 +1,164 @@
+/* Overall Page Styling */
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
+#root {
+  width: 100%;
+  max-width: 600px;
+}
+
+/* Instructions Panel */
+#instructions {
+  height: 8vh;
+  background: linear-gradient(135deg, #0f3460 0%, #1a1a2e 100%);
+  padding: 15px;
+  margin: 0;
+  text-align: center;
+  border: 3px solid #e94560;
+  border-radius: 10px 10px 0 0;
+  box-shadow: 0 4px 15px rgba(233, 69, 96, 0.3);
+}
+
+#instructions p {
+  margin: 0;
+  font-size: 24px;
+  font-weight: bold;
+  color: #e94560;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+/* Game Board */
+#board {
+  display: grid;
+  grid-template-columns: auto auto auto;
+  background-color: #0f0f1e;
+  padding: 8px;
+  gap: 4px;
+  margin: 0;
+}
+
+/* Individual Cell Styling */
+.cell {
+  background-color: #2a2a3e;
+  border: 2px solid #e94560;
+  padding: 0;
+  font-size: 48px;
+  font-weight: bold;
+  height: 25vmin;
+  width: 25vmin;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  color: #e94560;
+}
+
+.cell:hover {
+  background-color: #1a1a2e;
+  transform: scale(1.05);
+  box-shadow: 0 0 15px rgba(233, 69, 96, 0.4);
+}
+
+/* Playable cells (empty cells) */
+.playable {
+  background: linear-gradient(135deg, #0f3460 0%, #1a1a2e 100%);
+  color: #16c784;
+  border: 2px solid #16c784;
+}
+
+.playable:hover {
+  background: linear-gradient(135deg, #1a4d7a 0%, #2a2a3e 100%);
+  cursor: pointer;
+  box-shadow: 0 0 15px rgba(22, 199, 132, 0.5);
+  border: 2px solid #16c784;
+}
+
+/* Cell text styling */
+.cell {
+  color: #e94560;
+}
+
+.playable::before {
+  content: '◯';
+  opacity: 0.4;
+  font-size: 36px;
+  color: #16c784;
+}
+
+.playable:hover::before {
+  opacity: 0.7;
+}
+
+/* Bottom Bar - Buttons */
+#bottombar {
+  height: 7vh;
+  background-color: #1a1a2e;
+  display: flex;
+  gap: 0;
+  border: 3px solid #e94560;
+  border-radius: 0 0 10px 10px;
+  box-shadow: 0 4px 15px rgba(233, 69, 96, 0.3);
+}
+
+#bottombar button {
+  flex: 1;
+  margin: 0;
+  padding: 0;
+  border: none;
+  border-right: 2px solid #0f3460;
+  font-size: 18px;
+  font-weight: bold;
+  background: linear-gradient(135deg, #0f3460 0%, #16213e 100%);
+  color: #e94560;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+#bottombar button:last-child {
+  border-right: none;
+}
+
+#bottombar button:hover {
+  background: linear-gradient(135deg, #1a4d7a 0%, #2a2a3e 100%);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(233, 69, 96, 0.4);
+  color: #16c784;
+}
+
+#bottombar button:active {
+  transform: translateY(0);
+  box-shadow: 0 2px 6px rgba(233, 69, 96, 0.3);
+}
+
+/* Responsive Design */
+@media (max-width: 600px) {
+  .cell {
+    font-size: 32px;
+    height: 30vmin;
+    width: 30vmin;
+  }
+
+  #instructions p {
+    font-size: 18px;
+  }
+
+  #bottombar button {
+    font-size: 14px;
+  }
+}
